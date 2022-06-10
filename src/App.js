@@ -2,6 +2,7 @@ import {Component} from "react";
 import './App.css';
 import Todo from './components/todo'
 import Count from './components/Counter'
+import Forms from "./components/Forms";
 
 // function App() {
 //   return (
@@ -22,6 +23,7 @@ class App extends Component{
       <h1>{this.state.my}</h1>
       <Todo />
       <Count />
+      <Forms />
     </div>
     )
   }
