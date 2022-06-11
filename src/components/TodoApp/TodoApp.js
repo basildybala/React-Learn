@@ -1,54 +1,19 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import "./TodoApp.css"
 
+const TodoApp=()=>{
 
+    const [name,setName]=useState("")
+    const [email,setEmail]=useState("")
 
- class TodoApp extends Component {
-
-    state={
-        input:"",
-        items:[]
-    }
-    handleChange=(event)=>{
-        this.setState({
-            input:event.target.value
-        })
-    }
-    storeItems=(event)=>{
-        event.preventDefault();
-        const {input}=this.state
-        this.setState({
-            items:[...this.state.items,input],
-            input:""
-        })
-    }
-    delete=(index)=>{
-      this.setState({
-          items:this.state.items.filter((data, key)=> key !==index)
-      })
-    }
-
-  render() {
-      const {input,items}=this.state
-      console.log(items);
-    return (
-      <div className='todo-container'>
-          <form onSubmit={this.storeItems}>
-           <h1>TodoApp </h1> 
-           
-               <input value={input} onChange={this.handleChange} type="text" />
-           
-           </form>
-
-           <ul>
-               {items.map((data, index) =>(
-                   <li key={index}>{data} <i onClick={()=>this.delete(index)}>X</i></li>
-               ))}
-           </ul>
-      </div>
-
-     
+    return(
+        <div>
+            <input type="text" name="name" value={name} onChange={(event)=> setName(event.target.value)} />
+            <input type="text" name="email" value={email} onChange={(event)=> setEmail(event.target.value)} />
+        </div>
     )
-  }
+
 }
+
+
 export default TodoApp
